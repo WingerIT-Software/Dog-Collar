@@ -494,46 +494,7 @@
       background: linear-gradient(to top, #ef4444, #fca5a5); 
     }
 
-    /* SpO2 Card */
-    .spo2-card {
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(34, 211, 238, 0.05) 100%);
-    }
-
-    .spo2-card .card-icon {
-      color: #0891b2;
-      animation: droplet-dance 4s ease-in-out infinite;
-      filter: drop-shadow(0 0 12px rgba(8, 145, 178, 0.3));
-    }
-
-    .spo2-bar {
-      width: 100%;
-      height: 12px;
-      background: rgba(8, 145, 178, 0.15);
-      border-radius: 20px;
-      overflow: hidden;
-      margin-top: 1.5rem;
-      position: relative;
-    }
-
-    .spo2-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #0891b2, #22d3ee);
-      border-radius: 20px;
-      transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-      animation: wave-flow 3s ease-in-out infinite;
-      position: relative;
-    }
-
-    .spo2-fill::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
-      animation: shimmer 3s infinite;
-    }
+   
 
     /* SOS Card */
     .sos-card {
@@ -1072,16 +1033,7 @@
         </div>
       </div>
 
-      <!-- SpO2 Card -->
-      <div class="card spo2-card">
-        <i class="card-icon fas fa-tint"></i>
-        <h3 class="title-font">Blood Oxygen</h3>
-        <div class="card-value" id="spo2">--</div>
-        <div class="card-subtitle">SpO₂ %</div>
-        <div class="spo2-bar">
-          <div class="spo2-fill" id="spo2Fill"></div>
-        </div>
-      </div>
+     
 
       <!-- SOS Card -->
       <div class="card sos-card" id="sosCard">
@@ -1270,12 +1222,6 @@
       const tempEl = document.getElementById('temp');
       tempEl.textContent = collarData.Temp ? `${collarData.Temp.toFixed(1)}°C` : '--';
       
-      // SpO2
-      const spo2El = document.getElementById('spo2');
-      spo2El.textContent = collarData.sp02 ? `${collarData.sp02}%` : '--';
-      
-      const spo2Fill = document.getElementById('spo2Fill');
-      spo2Fill.style.width = `${collarData.sp02 || 0}%`;
       
       // SOS
       const sosBadge = document.getElementById('sosBadge');
